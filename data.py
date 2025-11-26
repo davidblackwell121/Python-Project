@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #Is supposed to grab the amount of times a certain string shows in the csv and add it to an array
 #Treats catagories, countries, ect with more then one entry different though, so action and action, comedy are different strings
 
-df = pd.read_csv('netflix_titles.csv')
+df = pd.read_csv('netflix_titles.csv') # need to upload this into folder
 
 filled_df = df.fillna("No info Available")
 
