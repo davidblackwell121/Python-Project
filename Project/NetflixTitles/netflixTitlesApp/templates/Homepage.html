@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Title Search</title>
+
+    <link rel="stylesheet" href="{% static '/searchApp/css/search.css' %}">
+</head>
+<body>
+    <form method="GET">
+        <input type="text" id="title" name="title" placeholder="Search by Title" value="{{title}}">
+
+        <input type="text" id="director" name="director" placeholder="Search by Director" value="{{director}}">
+
+        <input type="text" id="cast" name="cast" placeholder="Search by Cast" value="{{cast}}">
+
+        <label for="release_year">Release Year:</label>
+        <select name="release_year" id="release_year">
+            <option value="">--Select Year--</option>
+            {% for y in years %}
+                <option value="{{y}}">{{y}}</option>
+            {% endfor %}
+        </select><br>
+
+        <div class="checkbox-group genre-group">
+            {% for g in genre %}
+                {% if g %}
+                    <label class="checkbox-label" for="{{g}}">
+                        <input type="checkbox" id="{{g}}" name="genres" value="{{g}}">
+                        {{g}}
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="checkbox-group">
+            {% for c in country %}
+                {% if c %}
+                    <label class="checkbox-label" for="{{c}}">
+                        <input type="checkbox" id="{{c}}" name="countries" value="{{c}}">
+                        {{c}}
+                    </label>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <br>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Search Results:</h2>
+        {% for r in results %}
+            <p>{{r}}</p>
+        {% endfor %}
+</body>
+</html>
