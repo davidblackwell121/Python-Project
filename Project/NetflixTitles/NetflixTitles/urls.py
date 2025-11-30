@@ -20,6 +20,6 @@ from django.urls import path
 from netflixTitlesApp import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("search/", views.year_view)
+    path('', views.year_view, name='home'),
+    path("graphs/", views.graphs, name='graphs')
 ]
