@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphs</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'searchApp/css/search.css' %}">
 </head>
 <body>
-    <a href="{% url 'home' %}">Return to the main page</a>
+    <div style="text-align: center; margin-top: 10px;">
+        <a class="graphs-link" href="{% url 'home' %}">Return to the main page</a>
+    </div>
 
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{{ graph }}" alt="Netflix Graphs" style="max-width: 90%; height: auto; display: inline-block;">
+    </div>
 </body>
 </html>

@@ -18,7 +18,6 @@ df_rating_count = df['rating'].value_counts()
 df_rating_count_names = df_rating_count.index.tolist()
 df_rating_count_numbers = df_rating_count.values.tolist()
 
-
 def year_view(request):
     years = (
         NetflixTitles.objects
@@ -77,18 +76,5 @@ def year_view(request):
     return render(request, "Homepage.html", {"years": years, "genre": genres, "country":country, "results": results})
 
 def graphs(request):
-    fig, axs = plt.subplots(3,1, figsize=(10,8))
-
-    axs[0].barh(df_catagory_count_names, df_catagory_count_numbers, color='g')
-    axs[0].set_title("Top 5 most popular genres on Netflix")
-
-    axs[1].bar(df_country_count_names, df_country_count_numbers, color='b')
-    axs[1].set_title("Top 5 countries with the most Netflix titles")
-
-    axs[2].pie(df_rating_count_numbers, labels=df_rating_count_names)
-    axs[2].set_title("Content Rating distribution")
-
-    plt.tight_layout()
-    plt.show()
-
-    return render(request, "graphs.html",)
+    graph = createSubplots()
+    return render(request, "graphs.html", {"graph": graph})
