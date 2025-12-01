@@ -1,5 +1,6 @@
 from django.db import models
 
+# Creates the Titles model with various parameters
 class NetflixTitles(models.Model):
     show_id = models.CharField(max_length=50)
     type = models.CharField(max_length=50)

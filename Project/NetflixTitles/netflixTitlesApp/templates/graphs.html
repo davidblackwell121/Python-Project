@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graphs</title>
     
+    <!-- link to css, load static required for proper styling in django -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'searchApp/css/search.css' %}">
 </head>
@@ -14,6 +15,7 @@
     </div>
 
     <div style="text-align: center;">
+        <!-- Loads the png images of the data graphs created in graphs.py -->
         <img src="data:image/png;base64,{{ graph }}" alt="Netflix Graphs" style="max-width: 90%; height: auto; display: inline-block;">
     </div>
 </body>
